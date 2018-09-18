@@ -16,10 +16,7 @@ module.exports =  (router, expressApp, restrictedAreaRoutesMethods) => {
 
   //Here we declare the route for the protected area and we apply the auth protecion
   //by passing expressApp.oauth.authorise() in the second parameter
-  router.post('/enter',  expressApp.oauth.authorise().catch
-  ((err) => {
-    
-  }), restrictedAreaRoutesMethods.accessRestrictedArea)
+  router.post('/enter',  expressApp.oauth.authorise(), restrictedAreaRoutesMethods.accessRestrictedArea)
 
   return router
 }

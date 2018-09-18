@@ -6,6 +6,9 @@ module.exports = {
 //get the mySql object
 const mySql = require('mysql')
 
+//get the config
+const config = require('../config.js')
+
 //object which holds the connection to the db
 let connection = null
 
@@ -17,10 +20,10 @@ function initConnection() {
   //set the global connection object
    connection = mySql.createConnection({
 
-    host: 'localhost',
-    user: 'root',
-    password: 'rootPassword',
-    database: 'nem-api'
+    host: config.databaseConfig.host,
+    user: config.databaseConfig.user,
+    password: config.databaseConfig.password,
+    database: config.databaseConfig.database
   })
 }
 
